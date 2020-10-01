@@ -100,6 +100,67 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
   - `inherit`
   - `none`
 
+## font-size property
+
+- specify how large the text is in a given element
+- `font-size`
+  - px
+
+## font-weight property
+
+- sets how thick or thin characters are in a section of text
+- `font-weight`
+  - 200 - 800, 100 intervals
+
+## line-height property
+
+- change the height of each line in a block of text.
+- changes the amount of vertical space that each line of text gets.
+- `line-height`
+  - px
+
+## pseudo-classes
+
+- a keyword that can be added to selectors, in order to select a specific state of the element
+- `:hover`
+
+## CSS Box Model
+
+- CSS treats each HTML element as its own box
+  - default
+  - *normal flow*
+- Block-level items automatically start on a new line 
+  - `<hX>`
+  - `<p>`
+  - `<div>`
+- inline items sit within surrounding content
+  - `<img>`
+  - `<span>`
+
+## Element position
+
+``` css
+p {
+  position: relative;
+  bottom: 10px;
+}
+/* 10 pixels away from the bottom */
+/* bottom offset moved upwards */
+```
+
+-specify how CSS should move it relative to its current position in the normal flow of the page
+- pairs with the CSS offset properties of left or right, and top or bottom
+- how far (px, %, ems) to move the item away from where it is normally positioned
+- does not remove it from the normal flow
+- `position: relative`
+
+### CSS offsets
+
+- moves element away from the referenced side
+- "a left offset moves an item to the right."
+- "top offset moved the element downwards"
+
+
 ## Resource/s
 
 [FreeCodeCamp](https://www.freecodecamp.org/learn)
