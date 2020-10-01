@@ -180,6 +180,16 @@ You can use an id to style a single element and later you'll learn that you can 
 
 - id attributes should be unique
 
+## Block-level elements
+
+- always starts on a new line and takes up the full width available
+- <div>
+
+## Inline-level elements
+
+- does not start on a new line and it only takes up as much width as necessary.
+- <span>
+
 ## Resource/s
 
 [FreeCodeCamp](https://www.freecodecamp.org/learn)
