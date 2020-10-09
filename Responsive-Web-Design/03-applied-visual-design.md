@@ -137,7 +137,16 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
   - `<img>`
   - `<span>`
 
-## Element position
+## CSS offset properties
+
+- how far (px, %, ems) to move the item away from where it is normally positioned
+- moves element away from the referenced side
+- "a left offset moves an item to the right."
+- "top offset moved the element downwards"
+- `top`, `bottom`, `left`, `right`
+  - `px`, `%`, `ems`
+
+## Relative element position
 
 ``` css
 p {
@@ -148,18 +157,254 @@ p {
 /* bottom offset moved upwards */
 ```
 
--specify how CSS should move it relative to its current position in the normal flow of the page
-- pairs with the CSS offset properties of left or right, and top or bottom
-- how far (px, %, ems) to move the item away from where it is normally positioned
+- specify how CSS should move it relative to its current position in the normal flow of the page
+- pairs with the CSS offset properties
 - does not remove it from the normal flow
+  - other elements around it still behave as if that item were in its default position
 - `position: relative`
 
-### CSS offsets
+## Absolute element position
 
-- moves element away from the referenced side
-- "a left offset moves an item to the right."
-- "top offset moved the element downwards"
+``` html
+<style>
+  #searchbar {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+  }
+  section {
+    position: relative;
+  }
+</style>
+<body>
+  <h1>Welcome!</h1>
+  <section>
+    <form id="searchbar">
+      <label for="search">Search:</label>
+      <input type="search" id="search" name="search">
+      <input type="submit" name="submit" value="Go!">
+    </form>
+  </section>
+</body>
 
+```
+
+- locks the element in place relative to its closest parent container with css style `position: relative`
+  - If forgetten to add a position rule to the parent item, the browser will keep looking up the chain and ultimately default to the body tag.
+- removes the element from the normal flow of the document
+- `position: absolute`
+
+## Fixed element position
+
+``` html
+<style>
+  body {
+    min-height: 150vh;
+  }
+  #navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: #767676;
+  }
+  nav ul {
+    margin: 0px;
+    padding: 5px 0px 5px 30px;
+  }
+  nav li {
+    display: inline;
+    margin-right: 20px;
+  }
+  a {
+    text-decoration: none;
+  }
+</style>
+<body>
+  <header>
+    <h1>Welcome!</h1>
+    <nav id="navbar">
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <p>I shift up when the #navbar is fixed to the browser window.</p>
+</body>
+```
+
+- type of absolute positioning
+- locks an element relative to the browser window
+- removes the element from the normal flow of the document
+- an element with a fixed position won't move when the user scrolls
+- `position: fixed`
+
+## Float Property
+
+``` html
+<head>
+  <style>
+    #left {
+      float: left;
+      width: 50%;
+    }
+    #right {
+      float: right;
+      width: 40%;
+    }
+    aside, section {
+      padding: 2px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome!</h1>
+  </header>
+  <section id="left">
+    <h2>Content</h2>
+    <p>Good stuff</p>
+  </section>
+  <aside id="right">
+    <h2>Sidebar</h2>
+    <p>Links</p>
+  </aside>
+</body>
+```
+
+- removed from the normal flow of a document 
+- pushed to either the left or right of their containing parent element
+- commonly used with the width property
+
+## z-index property
+
+``` html
+<style>
+  div {
+    width: 60%;
+    height: 200px;
+    margin-top: 20px;
+  }
+
+  .first {
+    background-color: red;
+    position: absolute;
+    z-index: 2;
+  }
+  .second {
+    background-color: blue;
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    z-index: 1;
+  }
+</style>
+
+<div class="first"></div>
+<div class="second"></div>
+```
+
+- think of it as layers in photoshop lol
+- when elements are positioned to overlap using `(position: absolute | relative | fixed | sticky)`
+- specify order of elements are stacked on top of one another
+- `z-index`
+  - integer number
+  - higher the number, the higher in the stack
+
+## Center Horizontally a Block Element
+
+``` css
+margin: auto
+```
+
+## Changing Inline elements to Block using display
+
+```css
+img {
+  display: block;
+}
+```
+- images are inline images by default
+- changed to block elements using `display`
+
+## Colors
+
+- RYB color model
+  - outdated
+- additive RGB color model
+  - computer screens 
+  - primary colors
+    - Red
+    - Green
+    - Blue
+  - Secondary Colors
+    - Cyan (G + B)
+    - Magenta (R + B)
+    - Yellow ( R + G)
+    - complimentary to primary colors not used in creation
+      - Magenta is complimentary to Green
+- subtractive CMY(K) color model
+  - printing
+
+
+### Complimentary Colors
+
+- opposite from each other in the color wheel
+- when combined, cancels each other
+  - creates a gray color 
+
+### Tertiary Colors
+
+- result of combining a primary color with one of its secondary color neighbors
+- various methods of selecting different colors
+  - split-complementary color scheme
+
+### Hue, Saturation, Lightness
+
+- introduced in CCS3
+- hsl()
+- tint
+  - adding white
+- shade 
+  - adding black
+- tone
+  - adding gray
+  - or both tinting and shading
+
+```
+red	hsl(0, 100%, 50%)
+yellow	hsl(60, 100%, 50%)
+green	hsl(120, 100%, 50%)
+cyan	hsl(180, 100%, 50%)
+blue	hsl(240, 100%, 50%)
+magenta	hsl(300, 100%, 50%)
+```
+
+#### Hue
+
+- uses color wheel concept
+- 0 -360
+
+#### Saturation
+
+- amount of gray in color
+- fully saturated, no gray
+- percentage
+
+#### Lightness
+
+- amount of white or black 
+- 0% black, 100% white, 50% normal color
+
+## Linear Gradient
+
+``` css
+background: linear-gradient(gradient_direction, color 1, color 2, color 3, ...);
+
+background: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));
+```
 
 ## Resource/s
 
