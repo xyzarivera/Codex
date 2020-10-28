@@ -406,6 +406,70 @@ background: linear-gradient(gradient_direction, color 1, color 2, color 3, ...);
 background: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));
 ```
 
+### Repeating Linear Gradient
+
+``` css
+background: repeating-linear-gradient(
+      90deg,
+      yellow 0px,
+      blue 40px,
+      green 40px,
+      red 80px
+    );
+/* 0px [yellow -- blend -- blue] 40px [green -- blend -- red] 80px */
+```
+
+``` css
+background: repeating-linear-gradient(
+      45deg,
+      yellow 0px,
+      yellow 40px,
+      black 40px,
+      black 80px
+    );
+/* Make stripes by changing the repeating-linear-gradient() to use a gradient angle of 45deg, then set the first two color stops to yellow, and finally the second two color stops to black. */
+```
+
+- accepts a variety of values
+  - angle value - direction of gradient
+  - color stops - width values that mark where a transition takes place (% or px)
+
+## Adding background image
+
+``` css
+body {
+    background: url("https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png")
+  }
+```
+
+-The background property supports the url() function in order to link to an image   
+  - link address is wrapped in quotes inside the parentheses
+
+## Transform property
+
+``` css
+p {
+  transform: scale(2);
+}
+/* doubles the size of all the paragraph */
+p {
+  transform: skewX(-32deg);
+}
+/* skews the paragraph element by -32 degrees along the X-axis. */
+```
+
+- Transform has a variety of functions
+  - `scale()`
+  - move
+  - rotate
+  - `skewX()`
+    - which skews the selected element along its X (horizontal) axis by a given degree
+  - `skewY()` 
+    - skews an element along the Y (vertical) axis.
+  - etc
+- applying transform to a `div` element will also affect any child elements contained in the div
+
+
 ## Resource/s
 
 [FreeCodeCamp](https://www.freecodecamp.org/learn)
