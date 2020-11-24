@@ -469,6 +469,83 @@ p {
   - etc
 - applying transform to a `div` element will also affect any child elements contained in the div
 
+## Pseudo Elements
+
+- `::before` and `::after`
+- used to add something before/after a selected element
+- must have a defined `content`
+  - usually add a photo or text to a selected element
+  - in making shapes, it is set to an empty string
+
+``` html
+<style>
+  .heart {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: pink;
+    height: 50px;
+    width: 50px;
+    transform: rotate(-45deg);
+  }
+  .heart::after {
+    background-color: pink;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 25px;
+  }
+  .heart::before {
+    content: "" ;
+    background-color: pink;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 0px;
+  }
+</style>
+<div class="heart"></div>
+```
+
+## @keyframes and animation properties
+
+- `@keyframes` rules
+  - controls what happens during animation
+  - gives CSS propertoes for specific "frames" during animation
+  - value: percentage
+    - 0% - start
+    - 100% - end
+- 8 animation properties
+  - `animation-name`
+    - sets the name of the animation
+  - `animation-duration`
+    - length of animation time
+
+``` css
+#anim {
+  animation-name: colorful;
+  animation-duration: 3s;
+}
+
+@keyframes colorful {
+  0% {
+    background-color: blue;
+  }
+  100% {
+    background-color: yellow;
+  }
+}
+
+```
+
 
 ## Resource/s
 
