@@ -528,6 +528,23 @@ p {
     - sets the name of the animation
   - `animation-duration`
     - length of animation time
+  - `animation-fill-mode`
+    - specifies style applied to an element when the animation has finished
+    - `forwards` - retains end state(100%)
+  - `animation-iteration-count`
+    - control how many times it will loop through the animation
+    - `infinite` can be used
+  - `animation-timing-function`
+    - controls how quickly an animated element changes over the duration of the animation
+    - "acceleration"
+    - `ease` - default
+      - starts slow, speeds in the middle, slows in the end
+    - `ease-out`
+      - starts quick then slows down
+    - `ease-in`
+      - starts slow then speeds up 
+    - `linear`
+      - constant animation speed
 
 ``` css
 #anim {
@@ -546,6 +563,23 @@ p {
 
 ```
 
+## Bezier Curves in animation
+
+- used with `cubic-bezier` function
+  - consists of 4 main points
+    - `p0` - (0,0) by default
+    - `p1` - (x1, y1) - anchor point
+    - `p2` - (x2, y2) - anchor point
+    - `p3` - (1.1) by default
+- the shape of the curve represents how the animation playes out
+- uses cartesian coordinate system normalized to one (one unit)
+  - x-axis - time
+  - y-axis - change in animation
+
+``` css 
+animation-timing-function: cubic-bezier(x1, y1, x1, y1);
+animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+```
 
 ## Resource/s
 
