@@ -575,10 +575,17 @@ p {
 - uses cartesian coordinate system normalized to one (one unit)
   - x-axis - time
   - y-axis - change in animation
+  - x coordinate can only accept 0 to 1
+  - y coordinate can be set to a number larger than one
 
 ``` css 
 animation-timing-function: cubic-bezier(x1, y1, x1, y1);
+/* same as linear */
 animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+/* similar to ease-out */
+animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+/* juggling movement */
+animation-timing-function: cubic-bezier(0.311, 0.441, 0.444, 1.649);
 ```
 
 ## Resource/s
