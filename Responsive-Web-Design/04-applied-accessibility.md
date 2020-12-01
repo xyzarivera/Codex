@@ -51,6 +51,33 @@ They set the international standard for accessibility and provide a number of cr
 - gives appropriate meaning in your markup
 - assistive technologies can access this information to provide better page summary or navigation option to their users
 
+``` html
+<body>
+  <header>
+    <h1></h1>
+    <nav>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2></h2>
+      <article>
+        <h3></h3>
+      </article>
+      <article>
+        <h3></h3>
+      </article>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+```
+
 ## Jump straightto content using main element
 
 - `main`
@@ -96,22 +123,64 @@ They set the international standard for accessibility and provide a number of cr
 - meant for use in the `body` tag
   - different than the `head` element, which contains the page's title, meta information etc
 
+## Make navigation easier with the nav landmark
+
+- `nav`
+- wrap around with the main navigation links in your page
+
+## Make navigation easier with the footer landmark
+
+- `footer`
+- secondary navigation links at the bootom of the page
+- primarily used to contain copyright information or links to related documents
+
+## Improve Accessibility of Audio Content with the audio element
+
+- `audio`
+- wraps sound or audio stream content in the markup
+- audio content needs a text alternative
+  - nearby text on the page or a link to a transcript
+- supports `controls` attribute
+  - shows thebrowser the default play, pause, and other controls
+  - supports keyboard functionality
+  - boolean attribute
+    - its presence on the tag turns the setting on
+
 ``` html
-<body>
-  <header>
-    <h1></h1>
-  </header>
-  <main>
-    <section>
-      <h2></h2>
-      <article>
-        <h3></h3>
-      </article>
-      <article>
-        <h3></h3>
-      </article>
-    </section>
-    
-  </main>
-</body>
+<audio id="meowClip" controls>
+  <source src="audio/meow.mp3" type="audio/mpeg" />
+  <source src="audio/meow.ogg" type="audio/ogg" />
+</audio>
 ```
+
+- multimedia content usually has both visual and auditory components
+  - needs synchronized captions and a transcript
+- generally, a web developer is not responsible for creating captions or transcript
+  - needs to know to include them
+
+## Improve Chart Accessibility with figure element
+
+- `figure`, `figcaption`
+- wrap visual representation (image, diagram, chart) along with its caption
+- sematically grouping related content
+- provides text alternative
+
+``` html
+<figure>
+  <img src="roundhouseDestruction.jpeg" alt="Photo of Camper Cat executing a roundhouse kick">
+  <br>
+  <figcaption>
+    Master Camper Cat demonstrates proper form of a roundhouse kick.
+  </figcaption>
+</figure>
+```
+
+## Improve Form field accessibility with the label element
+
+- attributes in forms
+- `label`
+  - wraps text for specific form control item
+  - `for` attribute
+    - explicitly associates that label with the form conrtols
+    - used for screen readers
+    - value should be the same as the value if the `id` attribute of the form control
