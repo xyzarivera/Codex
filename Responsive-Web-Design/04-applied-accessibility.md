@@ -184,3 +184,62 @@ They set the international standard for accessibility and provide a number of cr
     - explicitly associates that label with the form conrtols
     - used for screen readers
     - value should be the same as the value if the `id` attribute of the form control
+
+``` html
+<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+</form>
+```
+
+## Wrap Radio Buttons ins a fieldset element
+
+- radios often comes in a group where the user must choose one
+- semantically show the choices are part of a set
+- `fieldset`
+- surrounds the entire grouping of radio buttons 
+  - `legend`
+    - description for grouping
+    - read by screen readers
+- not necessary when choices are self-explanatory (eg. gender selection)
+  - `label` with `for` is sufficient
+
+``` html
+<form>
+  <fieldset>
+    <legend>Choose one of these three items:</legend>
+    <input id="one" type="radio" name="items" value="one">
+    <label for="one">Choice One</label><br>
+    <input id="two" type="radio" name="items" value="two">
+    <label for="two">Choice Two</label><br>
+    <input id="three" type="radio" name="items" value="three">
+    <label for="three">Choice Three</label>
+  </fieldset>
+</form>
+```
+
+## Add an Accessible Date Picker
+
+- `date`
+- shows up in the input field when it's in focus
+  - makes fillinga form easier for all users
+  - depends on browser support
+- for older browsers
+  - default is `text` type 
+
+``` html
+<label for="input1">Enter a date:</label>
+<input type="date" id="input1" name="input1">
+```
+
+## Standardize Times with HTML5 datetime attribute
+
+- `time` element
+  - inline element
+- `datetime` attribute
+- wrap a date or time on a page
+- a valid format of the date is held
+
+``` html
+p>Master Camper Cat officiated the cage match between Goro and Scorpion <time datetime="2013-02-13">last Wednesday</time>, which ended in a draw.</p>
+```
