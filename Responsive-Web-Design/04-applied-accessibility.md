@@ -12,6 +12,10 @@ Concepts
 2. ensure text alternatives exist for non-text and visual content
 3. create an easily-navigated page that's keyboard-friendly
 
+- importance of logical document outline
+- using semantically meaningful tags around content before using visual design aspect
+- CSS can also improve accessibility 
+
 
 ## W3 Consortium's Web Content Accessibility Guidelines (WCAG)
 
@@ -243,3 +247,130 @@ They set the international standard for accessibility and provide a number of cr
 ``` html
 p>Master Camper Cat officiated the cage match between Goro and Scorpion <time datetime="2013-02-13">last Wednesday</time>, which ended in a draw.</p>
 ```
+
+## Make Elements only visible to a screen reader by using custim CSS
+
+- CSS can improve accessibility
+  - visually hide content meant only for screen readers
+- visual presentation (charts)
+  - screen reader users need alternative presentation (table) to access data
+- CSS does not do the same thing:
+  - `display: none` or `visibility: hidden`
+    - hides content for everyone (including screen reader users)
+  - zero values for pixel sizes, `width: 0px; height: 0px`
+    - removes the element from the document flow
+    - screen readers will ignore it
+
+``` css
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+```
+
+## Improve Readability with High Contrast Text
+
+- sufficient contrast improves readability of content
+- `4.5 to 1 contrast ratio for normal text`
+  - Web Content Accessibility Guidelines (WCAG)
+  - compare relative luminance/lightness values of two colors
+  - applies to both color use and gray-scale combinations
+  - `1:1` for same color (no contrast)
+  - `21:1` for white against black (strongest contrast)
+- can be achieved by shading the darker color and tinting the lighter color
+  - darker shades - shades of blues, violets, magentas, and reds
+  - lighter tinted colors - oranges, greens, blue-greens
+
+## Avoid Colorblindness Issues by using sufficient contrast
+
+- color is a large part of visual design
+  - introduces two accessibility isses
+    - color alone should not be used as the only wau to convey important information
+      - screen reader users won't see it
+    - foreground and background colors need sufficient contrast so colorblind users can distinguish them
+- colorblind users have trouble distinguishing some colors from others
+  - usually in hue and sometimes lightness as well
+
+## Avoid Colorblindness Issues by carefully choosing colors that convey information
+
+- various forms of colorblindness
+  - reduced sensitivity to certain wavelength of light
+  - inability to see color at all
+- most common: reduced sensitivity to detect greens
+  - two similar green colors are the foreground and background color
+  - user may not be able to distinguish them
+- Close colors can be thought as neighbors on color wheel
+  - should be avoided when conveying important information
+- some onle color picking tools include visual simulations of colorblindness
+
+## Give Links meaning by using descriptive link text
+
+- screen reader users have different options for what type of content their device reads
+  - skipping to or over landmark elements
+  - jumping to main content
+  - getting a page summary from headings
+  - only hear links available on a page
+    - screen readers read the link text
+    - having `click here` or `read more` isn't helpful
+    - use brief but descriptive text within the `a` tags
+
+``` html
+<p>Felines the world over have been waging war on the most persistent of foes. This red nemesis combines both cunning stealth and lightning speed. But chin up, fellow fighters, our time for victory may soon be near. Click here for <a href="">information about batteries</a></p>
+```
+
+## Make Links navigable with HTML Access Keys
+
+ - `accesskey` attribute
+   - specify a shortcut key to activate or bring focus to an element
+   - more efficient for keyboard-only users
+   - can be used by any element
+     - particularly useful when it's used with interactive ones
+       - links
+       - buttons
+       - form controls
+
+``` html
+<button accesskey="b">Important Button</button>
+```
+
+## Use tabindex to add keyboard focus to an element
+
+- `tabindex`
+  - tag 
+    - indicated the element can be focused on
+    - value: integer (+,-,0) determines behavior
+  - links and form controls
+    - automatically receive keyboard focus when a user tabs through a page
+    - same order as the elemtnts come in the HTML source markup
+  - div, span, p 
+    - `tabindex="0"`
+  - a negative `tabindex` (-1) indicates that an element is focusable but is not reachable by the keyboard
+    - brings focus to content programmatically 
+      - eg. div used for a pop-up window is activated
+- enables CSS pseudo-class `:focus` on a tag
+
+``` html
+<div tabindex="0">I need keyboard focus!</div>
+```
+
+## Use tabindex to specify the order of keyboard focus for several elements
+
+- `tabindex`
+  - specifies the exact tab order of elements when the value of the attribute is set to a positive number 
+  - `tabindex="1` - focuses on that element first then cycles through the sequence of specified `tabindex` values (2,3 ...) before moving to default and `tabindex="0"`
+- it overrides the default order (the HTML source)
+  - may confuse users who are expecting to start navigation from top of the page
+  - may be necessary in some circumstances
+
+``` html
+<div tabindex="1">I get keyboard focus, and I get it first!</div>
+
+<div tabindex="2">I get keyboard focus, and I get it second!</div>
+```
+
+
+
