@@ -44,7 +44,7 @@
 | `space-around` | similar to `space-between` but first and last items are not locked to the edges. space is distributed arount all the items with half-space on either end of the container | - | - |
 | `space-evenly` | distributes space between the flex items with fulls pace at either end of the container | - | - |
 
-## Align elements using the `aign-items` property
+## Align elements using the `align-items` property
 
 - how to space the flex items along the cross axis
 - cross axis 
