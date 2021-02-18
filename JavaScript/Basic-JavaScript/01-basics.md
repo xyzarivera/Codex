@@ -14,6 +14,9 @@ multi-line comment */
 -   `undefined`
 -   `null`
 -   `boolean`
+    -   `true` or `false`
+    -   mutually exclusive
+    -   never written with quotes
 -   `String`
     -   collection of characters
     -   `' '` or `" "`
@@ -122,3 +125,98 @@ multi-line comment */
 -   `String` values cannot be altered once created.
 -   Individual character of a `string literal` cannot be changed.
 -   the only way is to assign to a new string
+
+## String Variables
+
+-   store several data and data types in one variable
+    -   `[ a , "b", c]`
+-   access array entries using `array indexes`
+    -   written in tha same bracket notation
+    -   zero-based indexing
+-   entries of arrays are `mutable`
+-   `multi-dimensional array`
+    -   nest array within other arrays
+    -   Array[x][y]
+        -   x = outermost array index
+        -   y = next level of entries inside
+-   `.push()`
+    -   append data to the end of an array
+    -   takes one or more parameters and "pushes" them onto the end of the array
+    -   `myArray.push(["dog", 3]);`
+-   `pop()`
+    -   removes the last element from an array and returns that element
+    -   returned element can be assigned to a variable
+    -   any data type can be "popped" off
+    -   `var removedFromMyArray = myArray.pop();`
+-   `shift()`
+    -   removes the first element of an array
+    -   `var removedFromMyArray = myArray.shift();`
+-   `unshift()`
+    -   add data in front of the array
+    -   `myArray.unshift(["Paul", 35]);`
+
+## Functions
+
+-   call/invoke a function by its name followed by parenthesis
+    -   `functionName()`
+
+```javascript
+function functionName() {
+    console.log("Hello World");
+}
+```
+
+-   `parameters`
+    -   variables that acts as placeholders for function inpus
+-   `arguments`
+    -   actual parameter values
+-   `scope`
+    -   visibility of variables
+    -   `Global Scope`
+        -   variables defined outside of a function block
+        -   variables initialized without using `var` are automatically created in the `global` scope regardless if it is inside a function block or not
+            -   creates unintended consequences in the code
+            -   always declare variables with `var`
+    -   `Local Scope`
+        -   visible only within that function
+        -   variables declared within a function
+        -   function parameters have local scope
+    -   `local` variables takes precedence over `global` variables
+
+```javascript
+function plusThree(num) {
+    return num + 3;
+}
+var answer = plusThree(5); // 8
+```
+
+-   `return`
+    -   send value back out of a function
+    -   if no `return` system, the returned value is `undefined`
+
+## Queue
+
+-   abstract Data Structure
+-   new items added at back of the queue
+-   old items are taken off from front of the queue
+
+```javascript
+function nextInLine(arr, item) {
+    // Only change code below this line
+    arr.push(item);
+    var a = arr.shift();
+    return a;
+    // Only change code above this line
+}
+
+// Setup
+var testArr = [1, 2, 3, 4, 5];
+
+// Display code
+console.log("Before: " + JSON.stringify(testArr));
+console.log(nextInLine(testArr, 6));
+console.log("After: " + JSON.stringify(testArr));
+```
+
+## If Statements
+
