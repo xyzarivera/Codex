@@ -218,5 +218,81 @@ console.log(nextInLine(testArr, 6));
 console.log("After: " + JSON.stringify(testArr));
 ```
 
-## If Statements
+## Conditional Logic
 
+### Comparison Operators
+
+-   returns a a boolean `true` or `false` value
+
+| Symbol | Name                     | Does Type Coercion? |
+| ------ | ------------------------ | ------------------- | ---------- | --- |
+| ==     | Equality                 | yes                 |
+| ===    | Strict Equality          | no                  |
+| !=     | Inequality               | yes                 |
+| !==    | Strict Inequality        | no                  |
+| >      | Greater Than             | yes                 |
+| >=     | Greater Than or Equal To | yes                 |
+| <      | Less Than                | yes                 |
+| <=     | Less Than or Equal To    | yes                 |
+| &&     | Logical AND              | --                  |
+|        |                          |                     | Logical OR | --  |
+
+-   `==` Equality Operator
+    -   compares two values
+    -   returns true if they're equivalent or false if they are not.
+    -   `Type Coercion`
+        -   In order for JavaScript to compare two different data types (for example, numbers and strings), it must convert one type to another.
+        ```javascript
+        1 == 1; // true
+        1 == 2; // false
+        1 == "1"; // true
+        "3" == 3; // true
+        ```
+-   `===` Strict Equality Operator
+    -   does not perform type conversion
+    ```javascript
+    3 === 3; // true
+    3 === "3"; // false
+    ```
+-   `!=` Inequality Operator
+    -   compares two values
+    -   returns false if they're equivalent or true if they are not.
+    -   does type conversion
+        ```javascript
+        1 != 2; // true
+        1 != "1"; // false
+        1 != "1"; // false
+        1 != true; // false
+        0 != false; // false
+        ```
+-   `!==` Strict Inequality Operator
+
+    -   logical opposite of strict equality operator
+    -   will no convert data types
+
+        ```javascript
+        3 !== 3; // false
+        3 !== "3"; // true
+        4 !== 3; // true
+        ```
+
+### If-Else Statements
+
+-   `if`
+    -   execute the code in the curly braces under certain `Boolean conditions`, defined in the parentheses
+-   `else`
+    -   executes when `if` condition is false
+- `else if` 
+  - multiple conditions
+- function is executed from top to bottom
+
+```JavaScript
+if (num > 15) {
+  return "Bigger than 15";
+} else if (num < 5) {
+  return "Smaller than 5";
+} else {
+  return "Between 5 and 15";
+}
+
+```
