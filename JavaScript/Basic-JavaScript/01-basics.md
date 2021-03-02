@@ -194,6 +194,23 @@ var answer = plusThree(5); // 8
     -   send value back out of a function
     -   if no `return` system, the returned value is `undefined`
 
+### Return Early Pattern
+
+- When a return statement is reached, the execution of the current function stops and control returns to the calling location.
+  - function exits at the `return` statement
+
+```javascript
+function myFun() {
+  console.log("Hello");
+  return "World";
+  console.log("byebye")
+}
+myFun();
+```
+
+
+
+
 ## Queue
 
 -   abstract Data Structure
@@ -295,4 +312,72 @@ if (num > 15) {
   return "Between 5 and 15";
 }
 
+```
+### Switch Statements
+
+- selecting from many options
+- tests a value and can have many `case` statements which define various possible values
+  - tested with strict equality `===`
+- executed from the first matched `case` value until a `break` is encountered
+  - if `break` is omitted, the next statement will be executed
+- `default` statement will be executed if no matching `case` statements are found
+  - should be the last case
+
+``` javascript
+switch (num) {
+  case value1:
+    statement1;
+    break;
+  case value2:
+    statement2;
+    break;
+...
+  default:
+    defaultStatement;
+    break;
+}
+```
+
+- multiple inputs with the same output
+
+``` javascript
+var result = "";
+switch(val) {
+  case 1:
+  case 2:
+  case 3:
+    result = "1, 2, or 3";
+    break;
+  case 4:
+    result = "4 alone";
+}
+```
+
+## Object 
+
+ - access data in objects through what are called `properties`
+   - numberes can be properties
+   - quotes can be ommited for single-word string properties
+     - if object has any-nonstring properties, JS will automatically typecast them as strings
+ 
+
+ ``` javascript
+ var cat = {
+  "property": "value".
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
+```
+
+### Dot Notation
+
+``` javascript
+var cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
 ```
