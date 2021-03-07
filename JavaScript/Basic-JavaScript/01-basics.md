@@ -359,7 +359,9 @@ switch(val) {
    - numberes can be properties
    - quotes can be ommited for single-word string properties
      - if object has any-nonstring properties, JS will automatically typecast them as strings
- 
+- can be thought of as a key/value storage (dictionary)
+- if using a tabular data, an object can be used to lookup values than using `switch` or `if/else`
+  - `lookup table` - In computer science, a lookup table is an array that replaces runtime computation with a simpler array indexing operation. The savings in processing time can be significant, because retrieving a value from memory is often faster than carrying out an "expensive" computation or input/output operation.
 
  ``` javascript
  var cat = {
@@ -367,17 +369,184 @@ switch(val) {
   "name": "Whiskers",
   "legs": 4,
   "tails": 1,
+  0
   "enemies": ["Water", "Dogs"]
 };
 ```
 
-### Dot Notation
+### Accessing Object Properties
+
+- Dot Notation
+``` javascript
+var myObj = {
+  prop1: "val1",
+  prop2: "val2"
+};
+var prop1val = myObj.prop1; // val1
+var prop2val = myObj.prop2; // val2
+
+```
+
+- Bracket Notation
+```javascript
+var myObj = {
+  "Space Name": "Kirk",
+  "More Space": "Spock",
+  "NoSpace": "USS Enterprise"
+};
+myObj["Space Name"]; // Kirk
+myObj['More Space']; // Spock
+myObj["NoSpace"]; // USS Enterprise
+```
+
+- Accessing with Variables
+```javascript
+var dogs = {
+  Fido: "Mutt",  Hunter: "Doberman",  Snoopie: "Beagle"
+};
+var myDog = "Hunter";
+var myBreed = dogs[myDog];
+console.log(myBreed);
+```
 
 ``` javascript
-var cat = {
-  "name": "Whiskers",
+var someObj = {
+  propName: "John"
+};
+function propPrefix(str) {
+  var s = "prop";
+  return s + str;
+}
+var someProp = propPrefix("Name");
+console.log(someObj[someProp]); // John
+```
+
+- The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
+
+``` javascript
+var ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": { 
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+ourStorage.cabinet["top drawer"].folder2; // secrets
+ourStorage.desk.drawer; // stapler
+```
+
+### Testing Objects for Properties
+
+- `.hasOwnProperty(propname)`
+- returns `true` or `false` if property exists or not
+### Using Objects for Lookups
+
+``` javascript
+// Setup
+function phoneticLookup(val) {
+  var result = "";
+
+  switch(val) {
+    case "alpha":
+      result = "Adams";
+      break;
+    case "bravo":
+      result = "Boston";
+      break;
+    case "charlie":
+      result = "Chicago";
+      break;
+    case "delta":
+      result = "Denver";
+      break;
+    case "echo":
+      result = "Easy";
+      break;
+    case "foxtrot":
+      result = "Frank";
+  }
+
+  return result;
+}
+
+phoneticLookup("charlie");
+```
+
+``` javascript
+// Setup
+function phoneticLookup(val) {
+  var result = "";
+
+  var lookup = {
+    "alpha": "Adams",
+    "bravo": "Boston",
+    "charlie": "Chicago",
+    "delta": "Denver",
+    "echo": "Easy",
+    "foxtrot":  "Frank"
+  }
+
+  result = lookup[val];
+  return result;
+}
+
+phoneticLookup("charlie");
+```
+
+### Notes
+
+- Updating object properties is the same as updating a variable
+
+``` javascript
+var ourDog = {
+  "name": "Camper",
   "legs": 4,
   "tails": 1,
-  "enemies": ["Water", "Dogs"]
+  "friends": ["everything!"]
 };
+
+ourDog.name = "Happy Camper";
 ```
+
+- Adding new properties to existingi object is the same as updating them
+
+``` javascript
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+
+ourDog.bark = "bow-wow";
+```
+
+- Deleting Properties
+
+``` javascript
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"],
+  "bark": "bow-wow"
+};
+
+delete ourDog.bark;
+
+{
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+}
+```
+
+### JSON
+
+- [JavaScript Object Notation](https://www.json.org/json-en.html) or JSON is a related data interchange format used to store data.
