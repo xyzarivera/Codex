@@ -550,3 +550,37 @@ delete ourDog.bark;
 ### JSON
 
 - [JavaScript Object Notation](https://www.json.org/json-en.html) or JSON is a related data interchange format used to store data.
+
+## Control Flow
+
+### While Loops
+
+- runs while condition is true then exits when it is no longer true
+
+``` javascript
+var ourArray = [];
+var i = 0;
+while(i < 5) {
+  ourArray.push(i);
+  i++;
+}
+```
+
+### For Loops
+
+- `for (a; b; c)`
+  - `a` - initialization
+  - `b` - condition
+  - `c` - final expression - executed at  the end of each loop iteration, usually to increment or decrement
+- iteration will continue as long as `b` is true
+
+``` javascript
+var ourArray = [];
+for (var i = 0; i < 5; i++) {
+  ourArray.push(i);
+}
+```
+
+### Do.. While Loops
+
+- `do` one pass of the code inside the loop, then continue to `run` the loop `while` the condition is `true`
