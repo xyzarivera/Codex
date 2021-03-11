@@ -196,20 +196,17 @@ var answer = plusThree(5); // 8
 
 ### Return Early Pattern
 
-- When a return statement is reached, the execution of the current function stops and control returns to the calling location.
-  - function exits at the `return` statement
+-   When a return statement is reached, the execution of the current function stops and control returns to the calling location.
+    -   function exits at the `return` statement
 
 ```javascript
 function myFun() {
-  console.log("Hello");
-  return "World";
-  console.log("byebye")
+    console.log("Hello");
+    return "World";
+    console.log("byebye");
 }
 myFun();
 ```
-
-
-
 
 ## Queue
 
@@ -299,9 +296,9 @@ console.log("After: " + JSON.stringify(testArr));
     -   execute the code in the curly braces under certain `Boolean conditions`, defined in the parentheses
 -   `else`
     -   executes when `if` condition is false
-- `else if` 
-  - multiple conditions
-- function is executed from top to bottom
+-   `else if`
+    -   multiple conditions
+-   function is executed from top to bottom
 
 ```JavaScript
 if (num > 15) {
@@ -313,17 +310,18 @@ if (num > 15) {
 }
 
 ```
+
 ### Switch Statements
 
-- selecting from many options
-- tests a value and can have many `case` statements which define various possible values
-  - tested with strict equality `===`
-- executed from the first matched `case` value until a `break` is encountered
-  - if `break` is omitted, the next statement will be executed
-- `default` statement will be executed if no matching `case` statements are found
-  - should be the last case
+-   selecting from many options
+-   tests a value and can have many `case` statements which define various possible values
+    -   tested with strict equality `===`
+-   executed from the first matched `case` value until a `break` is encountered
+    -   if `break` is omitted, the next statement will be executed
+-   `default` statement will be executed if no matching `case` statements are found
+    -   should be the last case
 
-``` javascript
+```javascript
 switch (num) {
   case value1:
     statement1;
@@ -338,103 +336,107 @@ switch (num) {
 }
 ```
 
-- multiple inputs with the same output
+-   multiple inputs with the same output
 
-``` javascript
+```javascript
 var result = "";
-switch(val) {
-  case 1:
-  case 2:
-  case 3:
-    result = "1, 2, or 3";
-    break;
-  case 4:
-    result = "4 alone";
+switch (val) {
+    case 1:
+    case 2:
+    case 3:
+        result = "1, 2, or 3";
+        break;
+    case 4:
+        result = "4 alone";
 }
 ```
 
-## Object 
+## Object
 
- - access data in objects through what are called `properties`
-   - numberes can be properties
-   - quotes can be ommited for single-word string properties
-     - if object has any-nonstring properties, JS will automatically typecast them as strings
-- can be thought of as a key/value storage (dictionary)
-- if using a tabular data, an object can be used to lookup values than using `switch` or `if/else`
-  - `lookup table` - In computer science, a lookup table is an array that replaces runtime computation with a simpler array indexing operation. The savings in processing time can be significant, because retrieving a value from memory is often faster than carrying out an "expensive" computation or input/output operation.
+-   access data in objects through what are called `properties`
+    -   numberes can be properties
+    -   quotes can be ommited for single-word string properties
+        -   if object has any-nonstring properties, JS will automatically typecast them as strings
+-   can be thought of as a key/value storage (dictionary)
+-   if using a tabular data, an object can be used to lookup values than using `switch` or `if/else`
+    -   `lookup table` - In computer science, a lookup table is an array that replaces runtime computation with a simpler array indexing operation. The savings in processing time can be significant, because retrieving a value from memory is often faster than carrying out an "expensive" computation or input/output operation.
 
- ``` javascript
- var cat = {
-  "property": "value".
-  "name": "Whiskers",
-  "legs": 4,
-  "tails": 1,
-  0
-  "enemies": ["Water", "Dogs"]
+```javascript
+var cat = {
+ "property": "value".
+ "name": "Whiskers",
+ "legs": 4,
+ "tails": 1,
+ 0
+ "enemies": ["Water", "Dogs"]
 };
 ```
 
 ### Accessing Object Properties
 
-- Dot Notation
-``` javascript
+-   Dot Notation
+
+```javascript
 var myObj = {
-  prop1: "val1",
-  prop2: "val2"
+    prop1: "val1",
+    prop2: "val2",
 };
 var prop1val = myObj.prop1; // val1
 var prop2val = myObj.prop2; // val2
-
 ```
 
-- Bracket Notation
+-   Bracket Notation
+
 ```javascript
 var myObj = {
-  "Space Name": "Kirk",
-  "More Space": "Spock",
-  "NoSpace": "USS Enterprise"
+    "Space Name": "Kirk",
+    "More Space": "Spock",
+    NoSpace: "USS Enterprise",
 };
 myObj["Space Name"]; // Kirk
-myObj['More Space']; // Spock
+myObj["More Space"]; // Spock
 myObj["NoSpace"]; // USS Enterprise
 ```
 
-- Accessing with Variables
+-   Accessing with Variables
+
 ```javascript
 var dogs = {
-  Fido: "Mutt",  Hunter: "Doberman",  Snoopie: "Beagle"
+    Fido: "Mutt",
+    Hunter: "Doberman",
+    Snoopie: "Beagle",
 };
 var myDog = "Hunter";
 var myBreed = dogs[myDog];
 console.log(myBreed);
 ```
 
-``` javascript
+```javascript
 var someObj = {
-  propName: "John"
+    propName: "John",
 };
 function propPrefix(str) {
-  var s = "prop";
-  return s + str;
+    var s = "prop";
+    return s + str;
 }
 var someProp = propPrefix("Name");
 console.log(someObj[someProp]); // John
 ```
 
-- The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
+-   The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
 
-``` javascript
+```javascript
 var ourStorage = {
-  "desk": {
-    "drawer": "stapler"
-  },
-  "cabinet": {
-    "top drawer": { 
-      "folder1": "a file",
-      "folder2": "secrets"
+    desk: {
+        drawer: "stapler",
     },
-    "bottom drawer": "soda"
-  }
+    cabinet: {
+        "top drawer": {
+            folder1: "a file",
+            folder2: "secrets",
+        },
+        "bottom drawer": "soda",
+    },
 };
 ourStorage.cabinet["top drawer"].folder2; // secrets
 ourStorage.desk.drawer; // stapler
@@ -442,57 +444,58 @@ ourStorage.desk.drawer; // stapler
 
 ### Testing Objects for Properties
 
-- `.hasOwnProperty(propname)`
-- returns `true` or `false` if property exists or not
+-   `.hasOwnProperty(propname)`
+-   returns `true` or `false` if property exists or not
+
 ### Using Objects for Lookups
 
-``` javascript
+```javascript
 // Setup
 function phoneticLookup(val) {
-  var result = "";
+    var result = "";
 
-  switch(val) {
-    case "alpha":
-      result = "Adams";
-      break;
-    case "bravo":
-      result = "Boston";
-      break;
-    case "charlie":
-      result = "Chicago";
-      break;
-    case "delta":
-      result = "Denver";
-      break;
-    case "echo":
-      result = "Easy";
-      break;
-    case "foxtrot":
-      result = "Frank";
-  }
+    switch (val) {
+        case "alpha":
+            result = "Adams";
+            break;
+        case "bravo":
+            result = "Boston";
+            break;
+        case "charlie":
+            result = "Chicago";
+            break;
+        case "delta":
+            result = "Denver";
+            break;
+        case "echo":
+            result = "Easy";
+            break;
+        case "foxtrot":
+            result = "Frank";
+    }
 
-  return result;
+    return result;
 }
 
 phoneticLookup("charlie");
 ```
 
-``` javascript
+```javascript
 // Setup
 function phoneticLookup(val) {
-  var result = "";
+    var result = "";
 
-  var lookup = {
-    "alpha": "Adams",
-    "bravo": "Boston",
-    "charlie": "Chicago",
-    "delta": "Denver",
-    "echo": "Easy",
-    "foxtrot":  "Frank"
-  }
+    var lookup = {
+        alpha: "Adams",
+        bravo: "Boston",
+        charlie: "Chicago",
+        delta: "Denver",
+        echo: "Easy",
+        foxtrot: "Frank",
+    };
 
-  result = lookup[val];
-  return result;
+    result = lookup[val];
+    return result;
 }
 
 phoneticLookup("charlie");
@@ -500,35 +503,35 @@ phoneticLookup("charlie");
 
 ### Notes
 
-- Updating object properties is the same as updating a variable
+-   Updating object properties is the same as updating a variable
 
-``` javascript
+```javascript
 var ourDog = {
-  "name": "Camper",
-  "legs": 4,
-  "tails": 1,
-  "friends": ["everything!"]
+    name: "Camper",
+    legs: 4,
+    tails: 1,
+    friends: ["everything!"],
 };
 
 ourDog.name = "Happy Camper";
 ```
 
-- Adding new properties to existingi object is the same as updating them
+-   Adding new properties to existingi object is the same as updating them
 
-``` javascript
+```javascript
 var ourDog = {
-  "name": "Camper",
-  "legs": 4,
-  "tails": 1,
-  "friends": ["everything!"]
+    name: "Camper",
+    legs: 4,
+    tails: 1,
+    friends: ["everything!"],
 };
 
 ourDog.bark = "bow-wow";
 ```
 
-- Deleting Properties
+-   Deleting Properties
 
-``` javascript
+```javascript
 var ourDog = {
   "name": "Camper",
   "legs": 4,
@@ -549,38 +552,75 @@ delete ourDog.bark;
 
 ### JSON
 
-- [JavaScript Object Notation](https://www.json.org/json-en.html) or JSON is a related data interchange format used to store data.
+-   [JavaScript Object Notation](https://www.json.org/json-en.html) or JSON is a related data interchange format used to store data.
 
 ## Control Flow
 
 ### While Loops
 
-- runs while condition is true then exits when it is no longer true
+-   runs while condition is true then exits when it is no longer true
 
-``` javascript
+```javascript
 var ourArray = [];
 var i = 0;
-while(i < 5) {
-  ourArray.push(i);
-  i++;
+while (i < 5) {
+    ourArray.push(i);
+    i++;
 }
 ```
 
 ### For Loops
 
-- `for (a; b; c)`
-  - `a` - initialization
-  - `b` - condition
-  - `c` - final expression - executed at  the end of each loop iteration, usually to increment or decrement
-- iteration will continue as long as `b` is true
+-   `for (a; b; c)`
+    -   `a` - initialization
+    -   `b` - condition
+    -   `c` - final expression - executed at the end of each loop iteration, usually to increment or decrement
+-   iteration will continue as long as `b` is true
 
-``` javascript
+```javascript
 var ourArray = [];
 for (var i = 0; i < 5; i++) {
-  ourArray.push(i);
+    ourArray.push(i);
 }
 ```
 
 ### Do.. While Loops
 
-- `do` one pass of the code inside the loop, then continue to `run` the loop `while` the condition is `true`
+-   `do` one pass of the code inside the loop, then continue to `run` the loop `while` the condition is `true`
+
+```javascript
+var ourArray = [];
+var i = 0;
+do {
+    ourArray.push(i);
+    i++;
+} while (i < 5);
+```
+
+## Recursion
+
+-   the concept that a function can be expressed in terms of itself
+-   Recursive functions must have a base case when they return without calling the function again, otherwise they can never finish executing.
+
+```javascript
+function multiply(arr, n) {
+    var product = 1;
+    for (var i = 0; i < n; i++) {
+        product *= arr[i];
+    }
+    return product;
+}
+```
+
+-   can be rewritten as `multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]`
+    -   no need to use a loop
+
+```javascript
+function multiply(arr, n) {
+    if (n <= 0) {
+        return 1;
+    } else {
+        return multiply(arr, n - 1) * arr[n - 1];
+    }
+}
+```
