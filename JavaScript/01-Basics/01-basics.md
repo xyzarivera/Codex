@@ -624,3 +624,66 @@ function multiply(arr, n) {
     }
 }
 ```
+
+## Math.random()
+
+-   generates random decimal number between inclusive 0 and exclusive 1.
+
+```javascript
+function randomFraction() {
+    return Math.random();
+}
+```
+
+-   Create a function called randomRange that takes a range myMin and myMax and returns a random whole number that's greater than or equal to myMin, and is less than or equal to myMax, inclusive.
+
+```javascript
+function randomRange(myMin, myMax) {
+    return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+}
+```
+
+## parseInt()
+
+-   `parseInt(string, radix)`
+-   parses a string and returns an integer
+-   `radix`
+    -   specifies base of number in the string
+    -   between 2 and 36
+
+```javascript
+var a = parseInt("007");
+// returns 7
+```
+
+## Ternary / Conditional Operator
+
+-   `a ? b : c`
+-   one line if-else expression
+-   `a` = condition
+-   `b` = code to run if true
+-   `c` = code to run if false
+
+- Chaining Ternary Operators
+
+``` javascript
+function findGreaterOrEqual(a, b) {
+  if (a === b) {
+    return "a and b are equal";
+  }
+  else if (a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater";
+  }
+}
+```
+
+``` javascript
+function findGreaterOrEqual(a, b) {
+  return (a === b) ? "a and b are equal" 
+    : (a > b) ? "a is greater" 
+    : "b is greater";
+}
+```
