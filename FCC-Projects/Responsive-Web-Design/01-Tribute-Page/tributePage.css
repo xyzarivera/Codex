@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu+Mono&display=swap");
+
+main {
+    background-color: #d5d7f2;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20em;
+}
+
+#title {
+    font-family: "Press Start 2P", cursive;
+    color: #f27b35;
+}
+
+#img-div {
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#img-caption {
+    font-family: "Ubuntu Mono", monospace;
+    text-align: center;
+}
+
+img {
+    max-width: 80%;
+    height: auto;
+}
+
+#tribute-info {
+    font-family: "Ubuntu Mono", monospace;
+    width: 20em;
+}
+
+#tribute-link {
+    color: #f27b35;
+}

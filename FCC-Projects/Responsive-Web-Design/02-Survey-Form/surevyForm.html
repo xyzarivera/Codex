@@ -1,0 +1,66 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<html>
+    <main>
+        <div id='header'>
+            <h1 id='title'> freeCodeCamp Survey Form</h1>
+            <p id='description'> Thank you for taking the time to help us improve the platform</p>
+        </div>
+        <form id='survey-form'>
+            <fieldset id='survey-group'>
+                <div class='form-input'>
+                    <label id='name-label' for='name'>Name: </label>
+                    <input id='name' type="text" placeholder='enter your name' required>
+                </div>
+                <div class='form-input'>  
+                    <label id='email-label' for='email'>Email: </label>
+                    <input id='email' type='email' placeholder='enter your email' required>
+                </div>
+                <div class='form-input'>  
+                    <label id='number-label' for='number'>Age: </label>
+                    <input id='number' type="number" placeholder='enter your age' min='12' max='60' pattern="\d*">
+                </div>
+                <div class='form-input'>
+                    <label id='dropdown-label' for='dropdown'>Which option best describes your current role? </label>
+                    <select name='role' id='dropdown' form='survey-form'>
+                        <option value='student'>Student</option>
+                        <option value='full time job'>Fulltime Job</option>
+                        <option value='prefer not to say'>Prefer not to say</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <fieldset class='form-input'>
+                    <legend>Would you recommend freeCodeCamp to a friend?</legend>
+                    <input id="yes" type="radio" name="recommend-radio" value="yes">
+                    <label for="yes">Definitely</label><br>
+                    <input id="maybe" type="radio" name="recommend-radio" value="maybe">
+                    <label for="maybe">Maybe</label><br>
+                    <input id="no" type="radio" name="recommend-radio" value="no">
+                    <label for="no">Not Sure</label><br>
+                </fieldset>
+                <fieldset class='form-input'>
+                    <legend>What would you like to see improved?</legend>
+                    <label for="front-end">
+                        <input id="front-end" value="front-end" type="checkbox" name="improve-checkbox">
+                        Front-end
+                    </label>
+                    <label for="back-end">
+                        <input id="back-end" value="back-end" type="checkbox" name="improve-checkbox"> 
+                        Back-end 
+                    </label>
+                    <label for="data">
+                        <input id="data" value="data" type="checkbox" name="improve-checkbox">
+                        Data
+                    </label>
+                </fieldset>
+                <div class='form-input'>
+                    <label id='comment-label' for='comment'>Any comments or suggestions? </label>
+                    <textarea id='comment' required>
+                        Enter your comment here
+                    </textarea>
+                </div>
+                <button id="submit" type="submit">Submit</button>
+            </fieldset>
+        </form>
+    </main>
+</html>
